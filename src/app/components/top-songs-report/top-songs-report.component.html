@@ -1,0 +1,34 @@
+<div class="container mt-2">
+  <hr />
+  <h2>Músicas Mais Tocadas</h2>
+  <select
+    [(ngModel)]="selectedPeriod"
+    (change)="onPeriodChange()"
+    class="form-select"
+  >
+    <option value="last-week">Semana Passada</option>
+    <option value="last-month">Mês Passado</option>
+    <option value="all-time">Todos os Tempos</option>
+  </select>
+  <ul class="list-group mt-3">
+    <li
+      *ngFor="
+        let song of topSongs | paginate : { itemsPerPage: 5, currentPage: p }
+      "
+      class="list-group-item"
+    >
+      {{ song.title }} - {{ song.artist }} (Compositor: {{ song.composer }})
+    </li>
+  </ul>
+
+  <div class="d-flex justify-content-center mt-3">
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Anterior"
+      nextLabel="Próximo"
+      pageLabel="Página"
+      ofLabel="de"
+      *ngIf="topSongs.length > 0"
+    ></pagination-controls>
+  </div>
+</div>

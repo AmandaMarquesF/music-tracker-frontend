@@ -1,0 +1,22 @@
+.navbar {
+    padding: 0.5rem 1rem; 
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem; 
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem; 
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      text-align: center; 
+    }
+  
+    .navbar-nav {
+      margin-top: 0.5rem; 
+    }
+  }
+  
